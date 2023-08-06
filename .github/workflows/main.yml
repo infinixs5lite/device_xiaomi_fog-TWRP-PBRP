@@ -16,7 +16,7 @@ on:
     types: [started]
 
 env:
-  MANIFEST=https://github.com/PitchBlackRecoveryProject/manifest_pb -b android-12.1
+  MANIFEST=https://github.com/PitchBlackRecoveryProject/manifest_pb.git -b android-12.1
   DEVICE: fog
   DT_LINK: https://github.com/boedhack99/device_xiaomi_fog-TWRP -b twrp-12.1
   DT_PATH: device/xiaomi/fog
