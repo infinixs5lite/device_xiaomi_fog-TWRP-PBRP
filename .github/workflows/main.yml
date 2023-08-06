@@ -1,4 +1,4 @@
-name: Building PBRP Android-12.1
+name: Building TWRP Android-12.1
 
 on:
 #  release:
@@ -16,7 +16,7 @@ on:
     types: [started]
 
 env:
-  MANIFEST: https://github.com/PitchBlackRecoveryProject/manifest_pb.git -b android-12.1
+  MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
   DEVICE: fog
   DT_LINK: https://github.com/boedhack99/device_xiaomi_fog-TWRP -b twrp-12.1
   DT_PATH: device/xiaomi/fog
@@ -24,7 +24,7 @@ env:
   KERNEL_PATH: kernel/xiaomi/fog
   REVISION: lineage-20
   TARGET: bootimage
-  ZIP_NAME: PBRP_fog_A12.1.zip
+  ZIP_NAME: TWRP_fog_A12.1.zip
   TZ: Asia/Kolkata
 
 jobs:
