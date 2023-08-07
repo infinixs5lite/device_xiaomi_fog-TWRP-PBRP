@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       DEPLOY_TYPE:
-        description: 'Deploy Type (TEST/BETA/OFFICIAL)'
+        description: 'Deploy Type (TEST/BETA/OFFICIAL/UNOFFICIAL)'
         required: true
         default: 'TEST'
       ChangeLogs:
@@ -39,7 +39,8 @@ jobs:
               if [[ ${BUILD_RELEASE_TYPE} == "TEST" ]]; then echo "TEST_BUILD=true"  >> $GITHUB_ENV;fi
               if [[ ${BUILD_RELEASE_TYPE} == "BETA" ]]; then echo "BETA_BUILD=true"  >> $GITHUB_ENV;fi
               if [[ ${BUILD_RELEASE_TYPE} == "OFFICIAL" ]]; then echo "PB_OFFICIAL=true"  >> $GITHUB_ENV;fi
-
+              if [[ ${BUILD_RELEASE_TYPE} == "UNOFFICIAL" ]]; then echo "PB_UNOFFICIAL=true"  >> $GITHUB_ENV;fi
+              
        - name: Checkout Cleaning Up Runner Repo
          uses: actions/checkout@v2
          with:
