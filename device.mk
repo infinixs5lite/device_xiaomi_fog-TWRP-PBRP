@@ -120,6 +120,7 @@ TW_EXCLUDE_APEX := true
 TW_FRAMERATE := 60
 TARGET_SCREEN_HEIGHT := 1650
 TARGET_SCREEN_WIDTH := 720
+TW_OVERRIDE_SYSTEM_PROPS := "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
 
 #Properties
 TW_OVERRIDE_SYSTEM_PROPS := \
