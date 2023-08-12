@@ -14,12 +14,12 @@ on:
 env:
   BUILD_RELEASE_TYPE: ${{ github.event.inputs.DEPLOY_TYPE }}
   CHANGELOG: ${{ github.event.inputs.ChangeLogs }}
-  BOT_API: ${{ secrets.BOT_API }}
+  BOT_API: ${{ secrets.GITHUB_API }}
   GCF_AUTH_KEY: ${{ secrets.GCF_AUTH_KEY }}
-  GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
-  GitHubMail: ${{ secrets.GitHubMail }}
-  GitHubName: ${{ secrets.GitHubName }}
-  SFPassword: ${{ secrets.SFPassword }}
+  GH_BOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GitHubMail: ${{ secrets.kelvinchinedu97@gmail.com }}
+  GitHubName: ${{ secrets.infinixs5lite }}
+  SFPassword: ${{ secrets.chinedu38@ }}
   SFUserName: ${{ secrets.SFUserName }}
   TARGET: "pbrp"
   #EXTRA_CMD: "Extra Commands Here"
@@ -46,7 +46,7 @@ jobs:
          with:
            repository: PitchBlackRecoveryProject/Cleaner
            ref: main
-           token: ${{ secrets.GH_BOT_TOKEN }}
+           token: ${{ secrets.GITHUB_TOKEN }}
            path: .github/actions/Cleaner
        - name: Cleaning
          uses: ./.github/actions/Cleaner
@@ -56,7 +56,7 @@ jobs:
          with:
            repository: PitchBlackRecoveryProject/Compiler
            ref: production
-           token: ${{ secrets.GH_BOT_TOKEN }}
+           token: ${{ secrets.GITHUB_TOKEN }}
            path: .github/actions/Compiler
        - name: Recovery Compilation
          uses: ./.github/actions/Compiler
