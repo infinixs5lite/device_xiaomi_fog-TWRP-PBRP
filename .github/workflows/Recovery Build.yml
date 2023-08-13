@@ -10,19 +10,19 @@ on:
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
         required: true
-        default: 'android-9.0'
+        default: 'android-12.1'
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/sounddrill31/android_device_motorola_addison-1'
+        default: 'https://github.com/infinixs5lite/device_xiaomi_fog-TWRP-PBRP'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
-        default: 'pbrp'
+        default: 'twrp-12.1'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
-        default: 'device/motorola/addison'
+        default: 'device/xiaomi/fog'
       COMMON_TREE_URL:
         description: 'COMMON_TREE_URL (if no common tree, leave blank)'
         required: false
@@ -30,17 +30,17 @@ on:
         description: 'COMMON_PATH (if no common tree, leave blank)'
         required: false
       DEVICE_NAME:
-        description: 'DEVICE_NAME'
+        description: 'fog'
         required: true
         default: 'addison'
       MAKEFILE_NAME:
-        description: 'MAKEFILE_NAME'
+        description: 'MAKE_FILE'
         required: true
-        default: 'omni_addison'
+        default: 'omni_fog'
       BUILD_TARGET:
         description: 'BUILD_TARGET'
         required: true
-        default: 'recovery'
+        default: 'boot'
 
 jobs:
   build:
