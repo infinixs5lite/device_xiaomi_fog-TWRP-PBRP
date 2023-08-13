@@ -37,6 +37,12 @@ on:
         description: 'MAKEFILE_NAME'
         required: true
         default: 'omni_fog'
+      KERNEL_URL:
+        description: 'KERNEL_URL'
+        required: true
+        default: 'https://github.com/dblenk-project/kernel_xiaomi_fog_header'
+      KERNEL_PATH: 'kernel/xiaomi/fog'
+      REVISION: lineage-20
       BUILD_TARGET:
         description: 'BUILD_TARGET'
         required: true
@@ -54,12 +60,14 @@ jobs:
         echo "::group::User Environment Variables"
         echo "Manifest URL: ${{ github.event.inputs.MANIFEST_URL }}"
         echo "Manifest Branch: ${{ github.event.inputs.MANIFEST_BRANCH }}"
+        echo "Kernel URL: ${{ github.event.inputs.KERNEL_URL }}"
+        echo "Kernel PATH: ${{ github.event.inputs.KERNEL_PATH }}"
         echo "Device Tree URL: ${{ github.event.inputs.DEVICE_TREE_URL }}"
         echo "Device Tree Branch: ${{ github.event.inputs.DEVICE_TREE_BRANCH }}"
         echo "Device Path: ${{ github.event.inputs.DEVICE_PATH }}"
         echo "Device Name: ${{ github.event.inputs.DEVICE_NAME }}"
         echo "Makefile Name: ${{ github.event.inputs.MAKEFILE_NAME }}"
-        echo "Build Target: ${{ github.event.inputs.BUILD_TARGET }}.img"
+        echo "Build Target: ${{ github.event.inputs.BUILD_TARGET }}.img
         echo "::endgroup::"
  
     # You might want to Checkout your repo first, but not mandatory
@@ -115,7 +123,12 @@ jobs:
       run: |
         git clone ${{ github.event.inputs.DEVICE_TREE_URL }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }}
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
-
+   
+   - name: kernel 
+      run: |
+        git clone ${{ github.event.inputs.KERNEL_URL }} -b ${{ github.event.inputs.KERNEL_PATH }} ./${{ github.event.inputs.REVISION }}
+      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+   
     - name: Clone common tree
       if: |
         github.event.inputs.COMMON_TREE_URL != null
