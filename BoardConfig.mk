@@ -167,4 +167,4 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # PBRP specific build flags
 PB_DISABLE_DEFAULT_DM_VERITY := true
-PB_TORCH_PATH := "/sys/class/leds/flashlight"
+PB_TORCH_PATH := "/sys/class/leds/led:torch"
